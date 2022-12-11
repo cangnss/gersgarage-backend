@@ -2,6 +2,12 @@ package com.demo.gerproject.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +15,33 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table
 public class Customer {
+	/*
+	@Id
+	@SequenceGenerator(
+		name = "customer_sequence",
+		sequenceName = "customer_sequence",
+		allocationSize=1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "customer_sequence"
+	)
+	*/
+	
+	@Id
 	private int id;
+	
 	private String firstname;
+	
 	private String lastname;
-	private Date createDate;
+	
+	private int role = 0;
+	
+	private int placeId;
+	
+	private Date createdAt = new Date();
 
 }
