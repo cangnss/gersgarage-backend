@@ -29,7 +29,5 @@ public class CustomerService {
 	public Customer getCustomerById(int id) {
 		return customerRepository.findById(id)
 								.orElseThrow(() -> new RuntimeException("Customer is not found!"));
-		
-		
 	}
 }
