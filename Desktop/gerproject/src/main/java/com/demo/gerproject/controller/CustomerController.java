@@ -48,6 +48,7 @@ public class CustomerController {
 		Customer oldCustomer = getCustomerById(id);
 		oldCustomer.setFirstname(customer.getFirstname());
 		oldCustomer.setLastname(customer.getLastname());
+		oldCustomer.setPassword(customer.getPassword());
 		oldCustomer.setCreatedAt(new Date());
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}

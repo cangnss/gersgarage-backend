@@ -25,6 +25,8 @@ public class Customer {
 	
 	private String lastname;
 	
+	private String password;
+	
 	private int role = 0;
 	
 	private int placeId;
