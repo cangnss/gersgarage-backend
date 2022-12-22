@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Service {
-	
+public class PlaceService {
+
 	@Id
 	private int id;
 	private String type;

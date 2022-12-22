@@ -4,25 +4,24 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.demo.gerproject.model.Customer;
-import com.demo.gerproject.service.CustomerService;
-import com.demo.gerproject.service.ServiceService;
+import com.demo.gerproject.model.Place;
+import com.demo.gerproject.model.PlaceService;
+import com.demo.gerproject.service.PlaceServiceService;
 
 import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/services")
 @AllArgsConstructor
-public class ServiceController {
-	private final ServiceService serviceService;
-		
+public class PlaceServiceController {
+	private final PlaceServiceService placeService;
+	
 	@GetMapping
-	public ResponseEntity<List<Service>> getServices(){
-		return new ResponseEntity<>(serviceService.getServices(), HttpStatus.OK);
+	public ResponseEntity<List<PlaceService>> getPlaceServices() {
+		return new ResponseEntity<>(placeService.getPlaceServices(), HttpStatus.OK);
 	}
 }
