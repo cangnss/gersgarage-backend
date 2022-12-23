@@ -17,5 +17,9 @@ public class Vehicle {
 	private int id;
 	private String vehicleType;
 	private String vehicleEngineType;
+	private String brand;
+	private double km;
+	private int v_year;
+	private String model;
 	private int customerId;
 }
