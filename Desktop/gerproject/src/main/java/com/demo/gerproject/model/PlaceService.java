@@ -16,4 +16,5 @@ public class PlaceService {
 	private int id;
 	private String type;
 	private int placeId;
+	private int price;
 }
