@@ -21,5 +21,7 @@ public class Schedule {
 	private int available;
 	private int customerId;
 	private int placeId;
+	private int place_service_type=1;
+	private int vehicle_status=0;
 	
 }
