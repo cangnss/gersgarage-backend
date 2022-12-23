@@ -17,5 +17,5 @@ public class Place {
 	@Id
 	private int id;
 	private String name;
-
+	private int capacity=4;
 }
