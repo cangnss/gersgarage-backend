@@ -16,4 +16,5 @@ public class CustomerStock {
 	private int id;
 	private int customerId;
 	private int stockId;
+	private int quantity;
 }
