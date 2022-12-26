@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +21,14 @@ import com.demo.gerproject.service.EmployeeService;
 import lombok.AllArgsConstructor;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping("/employees")
 @AllArgsConstructor
 public class EmployeeController {
 	private final EmployeeService employeeService;
 
 	@GetMapping
-	public ResponseEntity<List<Employee>> getCustomers() {
+	public ResponseEntity<List<Employee>> getEmployees() {
 		return new ResponseEntity<>(employeeService.getEmployees(), HttpStatus.OK);
 	}
 
@@ -47,9 +49,11 @@ public class EmployeeController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> getEmployee(@PathVariable int id, @RequestBody Employee employee) {
 		Employee oldEmployee = getEmployeeById(id);
+		System.out.println("data:" + employee.getId() + employee.getFirstname() + employee.getLastname() + employee.getSalary());
 		oldEmployee.setFirstname(employee.getFirstname());
 		oldEmployee.setLastname(employee.getLastname());
 		oldEmployee.setSalary(employee.getSalary());
+		employeeService.updateEmployee(id, oldEmployee);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 

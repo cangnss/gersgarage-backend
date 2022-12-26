@@ -31,4 +31,13 @@ public class EmployeeService {
 	public Employee getEmployeeById(int id) {
 		return employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee is not found!"));
 	}
+	
+	public void updateEmployee(int id, Employee newEmployee) {
+        Employee oldEmployee = getEmployeeById(id);
+        oldEmployee.setFirstname(newEmployee.getFirstname());
+        oldEmployee.setLastname(newEmployee.getLastname());
+        oldEmployee.setSalary(newEmployee.getSalary());
+        employeeRepository.save(oldEmployee);
+    }
+
 }
