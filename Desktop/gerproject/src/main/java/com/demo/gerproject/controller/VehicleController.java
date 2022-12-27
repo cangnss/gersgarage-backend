@@ -49,6 +49,7 @@ public class VehicleController {
 		Vehicle oldVehicle = getVehicleById(id);
 		oldVehicle.setVehicleType(vehicle.getVehicleType());
 		oldVehicle.setVehicleEngineType(vehicle.getVehicleEngineType());
+		vehicleService.updateVehicle(id, oldVehicle);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 

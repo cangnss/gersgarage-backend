@@ -30,4 +30,10 @@ public class CommentService {
 	public Comment getCommentById(int id) {
 		return commentRepository.findById(id).orElseThrow(() -> new RuntimeException("Comment is not found!"));
 	}
+	
+	public void updateComment(int id, Comment newComment) {
+		Comment oldComment = getCommentById(id);
+		oldComment.setText(newComment.getText());
+        commentRepository.save(oldComment);
+    }
 }

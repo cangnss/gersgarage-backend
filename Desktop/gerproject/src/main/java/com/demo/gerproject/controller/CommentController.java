@@ -50,6 +50,7 @@ public class CommentController {
 	public ResponseEntity<Void> getComment(@PathVariable int id, @RequestBody Comment comment) {
 		Comment oldComment = getCommentById(id);
 		oldComment.setText(comment.getText());
+		commentService.updateComment(id, oldComment);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 

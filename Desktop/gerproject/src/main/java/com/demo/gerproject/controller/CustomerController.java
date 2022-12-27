@@ -50,6 +50,7 @@ public class CustomerController {
 		oldCustomer.setLastname(customer.getLastname());
 		oldCustomer.setPassword(customer.getPassword());
 		oldCustomer.setCreatedAt(new Date());
+		customerService.updateCustomer(id, oldCustomer);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
