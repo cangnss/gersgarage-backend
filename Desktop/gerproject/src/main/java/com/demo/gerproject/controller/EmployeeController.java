@@ -49,7 +49,6 @@ public class EmployeeController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> getEmployee(@PathVariable int id, @RequestBody Employee employee) {
 		Employee oldEmployee = getEmployeeById(id);
-		System.out.println("data:" + employee.getId() + employee.getFirstname() + employee.getLastname() + employee.getSalary());
 		oldEmployee.setFirstname(employee.getFirstname());
 		oldEmployee.setLastname(employee.getLastname());
 		oldEmployee.setSalary(employee.getSalary());
