@@ -64,4 +64,9 @@ public class VehicleController {
 		vehicleService.deleteVehicle(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<List<Vehicle>> getUserVehicles(@PathVariable int id){
+		return new ResponseEntity<>(vehicleService.getUserVehicles(id), HttpStatus.OK);
+	}
 }

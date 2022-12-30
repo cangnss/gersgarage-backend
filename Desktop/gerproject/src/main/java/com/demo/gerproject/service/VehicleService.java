@@ -43,4 +43,8 @@ public class VehicleService {
 		oldVehicle.setVehicleEngineType(newVehicle.getVehicleEngineType());
         vehicleRepository.save(oldVehicle);
     }
+	
+	public List<Vehicle> getUserVehicles(int id) {
+		return vehicleRepository.getUserVehicles(id);
+	}
 }
