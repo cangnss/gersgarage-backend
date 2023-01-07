@@ -1,6 +1,9 @@
 package com.demo.auth;
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.Date;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +28,9 @@ public class AuthenticationService {
         .lastname(request.getLastname())
         .email(request.getEmail())
         .password(passwordEncoder.encode(request.getPassword()))
+        .username(request.getUsername())
+        .placeId(1)
+        .createdAt(new Date())
         .role(Role.USER)
         .build();
     repository.save(user);
