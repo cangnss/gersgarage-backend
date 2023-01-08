@@ -1,4 +1,4 @@
-package com.demo.dao;
+package com.demo.gerproject.dao;
 
 import java.util.List;
 

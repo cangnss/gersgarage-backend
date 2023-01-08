@@ -31,5 +31,4 @@ public class PlaceService {
 	private String type;
 	private int placeId;
 	private int price;
-	private int customerId=0;
 }

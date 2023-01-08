@@ -1,5 +1,7 @@
 package com.demo.auth;
 
+import com.demo.gerproject.model.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +18,5 @@ public class AuthenticationResponse {
   private String lastname;
   private String username;
   private String token;
- 
+  private Role role;
 }

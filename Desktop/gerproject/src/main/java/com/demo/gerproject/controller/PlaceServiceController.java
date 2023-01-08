@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/services")
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @AllArgsConstructor
 public class PlaceServiceController {
 	private final PlaceServiceService placeServiceService;

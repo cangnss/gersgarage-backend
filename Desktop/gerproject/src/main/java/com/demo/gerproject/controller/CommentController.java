@@ -2,9 +2,11 @@ package com.demo.gerproject.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.gerproject.dao.UserCommentProjection;
+import com.demo.gerproject.dao.UserCommentsResponse;
 import com.demo.gerproject.model.Comment;
 import com.demo.gerproject.model.Customer;
 import com.demo.gerproject.service.CommentService;
@@ -24,6 +28,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/comments")
 @AllArgsConstructor
+@CrossOrigin(origins="http://localhost:3000")
 public class CommentController {
 	private final CommentService commentService;
 
@@ -58,5 +63,10 @@ public class CommentController {
 	public ResponseEntity<Void> deleteComment(@PathVariable int id) {
 		commentService.deleteComment(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<List<UserCommentProjection>> getUsersComments(@PathVariable int id){
+		return new ResponseEntity<>(commentService.getUsersComments(id), HttpStatus.OK);
 	}
 }

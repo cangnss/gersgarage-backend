@@ -28,7 +28,16 @@ public class SecurityConfiguration {
 			.csrf().disable()
 			.authorizeHttpRequests()
 			.requestMatchers("/auth/**").permitAll()
-			.requestMatchers(HttpMethod.GET, "/vehicles").permitAll()
+			.requestMatchers("/services").permitAll()
+			.requestMatchers("/employees").hasRole("ADMIN")
+			.requestMatchers("/schedules/**").hasRole("USER")
+			.requestMatchers("/stocks").permitAll()
+			.requestMatchers("/comments").permitAll()
+			.requestMatchers("/comments/**").permitAll()
+			.requestMatchers("/vehicles/**").permitAll()
+			.requestMatchers("/places").permitAll()
+			.requestMatchers("/payments").permitAll()
+			.requestMatchers("/customers").permitAll()
 			.anyRequest()
 			.authenticated()
 			.and()
@@ -37,7 +46,8 @@ public class SecurityConfiguration {
 			.sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authenticationProvider(authenticationProvider)
-			.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+			.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+			.logout();
 
 		return http.build();
 	}
