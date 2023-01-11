@@ -3,6 +3,8 @@ package com.demo.gerproject.model;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,7 +28,7 @@ public class Schedule {
 			allocationSize = 1
 	)
 	@GeneratedValue(
-			strategy = GenerationType.SEQUENCE,
+			strategy = GenerationType.IDENTITY,
 			generator = "schedule_sequence"
 	)
 	private int id;
@@ -35,7 +37,9 @@ public class Schedule {
 	private int available;
 	private int customerId;
 	private int placeId;
-	private int place_service_type=1;
-	private int vehicle_status=0;
+	private int place_service_type;
+	@Enumerated(EnumType.STRING)
+	private VehicleStatus vehicleStatus;
+	private int vehicleId;
 	
 }
