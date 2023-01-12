@@ -1,6 +1,6 @@
-package com.demo.auth;
+package com.demo.gerproject.auth;
 
-import com.demo.gerproject.model.Role;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-	
-  private int id;
+public class RegisterRequest {
+
   private String firstname;
   private String lastname;
+  private String email;
+  private String password;
   private String username;
-  private String token;
-  private Role role;
 }

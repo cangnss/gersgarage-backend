@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.demo.auth.AuthenticationResponse;
+import com.demo.gerproject.auth.AuthenticationResponse;
 import com.demo.gerproject.dao.UserCommentProjection;
 import com.demo.gerproject.dao.UserCommentsResponse;
 import com.demo.gerproject.model.Comment;

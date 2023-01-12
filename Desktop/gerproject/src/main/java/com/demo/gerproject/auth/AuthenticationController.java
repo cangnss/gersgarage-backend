@@ -1,4 +1,4 @@
-package com.demo.auth;
+package com.demo.gerproject.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

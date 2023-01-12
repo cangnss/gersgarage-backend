@@ -1,4 +1,4 @@
-package com.demo.auth;
+package com.demo.gerproject.auth;
 
 import lombok.RequiredArgsConstructor;
 
@@ -9,7 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.demo.config.JwtService;
+import com.demo.gerproject.config.JwtService;
 import com.demo.gerproject.model.Customer;
 import com.demo.gerproject.model.Role;
 import com.demo.gerproject.repository.CustomerRepository;
