@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.gerproject.dao.VehiclesInServiceProjection;
 import com.demo.gerproject.model.Customer;
 import com.demo.gerproject.model.Schedule;
 import com.demo.gerproject.model.VehicleStatus;
@@ -60,5 +61,10 @@ public class ScheduleController {
 		oldSchedule.setVehicleStatus(schedule.getVehicleStatus());
 		scheduleService.updateSchedule(id, oldSchedule);
 		return new ResponseEntity<>(null, HttpStatus.OK);
+	}
+	
+	@GetMapping("/activeVehicles")
+	public ResponseEntity<List<VehiclesInServiceProjection>> getVehiclesInService(){
+		return new ResponseEntity<>(scheduleService.getVehiclesInService(), HttpStatus.OK);
 	}
 }

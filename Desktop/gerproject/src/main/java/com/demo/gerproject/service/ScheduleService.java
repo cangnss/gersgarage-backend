@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.demo.gerproject.dao.VehiclesInServiceProjection;
 import com.demo.gerproject.model.Customer;
 import com.demo.gerproject.model.Place;
 import com.demo.gerproject.model.Schedule;
@@ -34,4 +35,9 @@ public class ScheduleService {
 		oldSchedule.setVehicleStatus(newSchedule.getVehicleStatus());
 		scheduleRepository.save(oldSchedule);
     }
+	
+	public List<VehiclesInServiceProjection> getVehiclesInService(){
+		return scheduleRepository.getVehiclesInService();
+	}
+	
 }
