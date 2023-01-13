@@ -3,6 +3,7 @@ package com.demo.gerproject.auth;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +24,7 @@ public class AuthenticationService {
   private final AuthenticationManager authenticationManager;
 
   public AuthenticationResponse register(RegisterRequest request) {
+	  
     var user = Customer.builder()
         .firstname(request.getFirstname())
         .lastname(request.getLastname())
@@ -58,5 +60,15 @@ public class AuthenticationService {
     	.role(user.getRole())
         .token(jwtToken)
         .build();
+  }
+  
+  public boolean findEmail(String email) {
+	  Optional<Customer> c = repository.findByEmail(email);
+	  System.out.println(c);
+	  if(c.isEmpty()) {
+		  return true;
+	  }else {
+		  return false;
+	  }
   }
 }
