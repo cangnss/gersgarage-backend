@@ -34,6 +34,18 @@ public class ScheduleController {
 		return new ResponseEntity<>(scheduleService.getSchedules(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/activeVehicles")
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<VehiclesInServiceProjection>> getVehiclesInService(){
+		return new ResponseEntity<>(scheduleService.getVehiclesInService(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/activeVehicles/{id}")
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<Schedule> getVehicleInService(@PathVariable int id){
+		return new ResponseEntity<>(scheduleService.getScheduleById(id), HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Schedule> addSchedule(@RequestBody Schedule schedule){
 		int available = 4;
@@ -55,16 +67,11 @@ public class ScheduleController {
 		return scheduleService.getScheduleById(id);
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/activeVehicles/{id}")
 	public ResponseEntity<Void> getSchedule(@PathVariable int id, @RequestBody Schedule schedule){
 		Schedule oldSchedule = getScheduleById(id);
 		oldSchedule.setVehicleStatus(schedule.getVehicleStatus());
 		scheduleService.updateSchedule(id, oldSchedule);
 		return new ResponseEntity<>(null, HttpStatus.OK);
-	}
-	
-	@GetMapping("/activeVehicles")
-	public ResponseEntity<List<VehiclesInServiceProjection>> getVehiclesInService(){
-		return new ResponseEntity<>(scheduleService.getVehiclesInService(), HttpStatus.OK);
 	}
 }
