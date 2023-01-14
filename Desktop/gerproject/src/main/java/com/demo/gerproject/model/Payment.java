@@ -1,6 +1,8 @@
 package com.demo.gerproject.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,8 +31,10 @@ public class Payment {
 	)
 	private int id;
 	private double amount;
-	private boolean type;
+	@Enumerated(EnumType.STRING)
+	private PaymentStatus status;
 	private int customerId;
 	private int placeId;
+	private int scheduleId;
 	
 }

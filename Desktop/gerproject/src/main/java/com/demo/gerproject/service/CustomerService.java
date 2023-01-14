@@ -3,6 +3,9 @@ package com.demo.gerproject.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.demo.gerproject.dao.UserVehiclesInServiceProjection;
+import com.demo.gerproject.dao.VehiclesInServiceProjection;
 import com.demo.gerproject.model.Customer;
 import com.demo.gerproject.model.Employee;
 import com.demo.gerproject.repository.CustomerRepository;
@@ -40,4 +43,8 @@ public class CustomerService {
 		oldCustomer.setPassword(newCustomer.getPassword());
         customerRepository.save(oldCustomer);
     }
+	
+	public List<UserVehiclesInServiceProjection> getUserVehiclesInService(int id){
+		return customerRepository.getUserVehiclesInService(id);
+	}
 }

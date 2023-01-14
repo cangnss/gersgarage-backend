@@ -1,5 +1,8 @@
 package com.demo.gerproject.controller;
+import com.demo.gerproject.dao.UserVehiclesInServiceProjection;
+import com.demo.gerproject.dao.VehiclesInServiceProjection;
 import com.demo.gerproject.model.Customer;
+import com.demo.gerproject.model.Payment;
 import com.demo.gerproject.service.CustomerService;
 
 import lombok.AllArgsConstructor;
@@ -8,6 +11,7 @@ import java.util.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/customers")
 @AllArgsConstructor
+@CrossOrigin(origins="http://localhost:3000")
 public class CustomerController {
 
 	private final CustomerService customerService;
@@ -58,5 +63,10 @@ public class CustomerController {
 	public ResponseEntity<Void> deleteCustomer(@PathVariable int id){
 		customerService.deleteCustomer(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/userVehiclesInService/{id}")
+	public ResponseEntity<List<UserVehiclesInServiceProjection>> getUserVehiclesInService(@PathVariable int id){
+		return new ResponseEntity<>(customerService.getUserVehiclesInService(id), HttpStatus.OK);
 	}
 }
