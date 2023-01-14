@@ -65,6 +65,7 @@ public class CommentController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	// user's comment request came here
 	@GetMapping("/user/{id}")
 	public ResponseEntity<List<UserCommentProjection>> getUsersComments(@PathVariable int id){
 		return new ResponseEntity<>(commentService.getUsersComments(id), HttpStatus.OK);

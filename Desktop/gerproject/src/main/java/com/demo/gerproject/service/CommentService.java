@@ -43,6 +43,7 @@ public class CommentService {
         commentRepository.save(oldComment);
     }
 	
+	// get user's comments
 	public List<UserCommentProjection> getUsersComments(int id){
 		return commentRepository.getUsersComments(id);
 	}

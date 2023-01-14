@@ -23,6 +23,7 @@ public class AuthenticationService {
   private final JwtService jwtService;
   private final AuthenticationManager authenticationManager;
 
+  // this method create customer object then create token for every customer.
   public AuthenticationResponse register(RegisterRequest request) {
 	  
     var user = Customer.builder()
@@ -42,6 +43,7 @@ public class AuthenticationService {
         .build();
   }
 
+  // check customer email or password then login system
   public AuthenticationResponse authenticate(AuthenticationRequest request) {
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(

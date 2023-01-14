@@ -12,4 +12,5 @@ public interface PaymentRepository extends JpaRepository<Payment, Integer>{
 	
 	@Query(value="select place_service.type, place_service.price from schedule inner join place_service on place_service.id = schedule.place_service_type where schedule.id = :id", nativeQuery=true)
 	PaymentResponseProjection getPricePlaceService(int id);
+	// When making payment with this query, we bring the fee transactions according to the service type.
 }

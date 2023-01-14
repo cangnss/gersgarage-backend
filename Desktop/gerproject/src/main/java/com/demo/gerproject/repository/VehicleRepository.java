@@ -13,4 +13,5 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Integer>{
 	
 	@Query(value="select * from vehicle where customer_id = :id", nativeQuery=true)
 	List<Vehicle> getUserVehicles(int id);
+	// bring vehicles from customer by id
 }

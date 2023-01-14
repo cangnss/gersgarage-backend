@@ -14,7 +14,7 @@ import com.demo.gerproject.model.Comment;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer>{
-	// 	@Query(value="SELECT new com.demo.gerproject.dao.UserCommentsResponse(placeName, text) FROM comment as c inner join place as p on p.id = c.place_id where customer_id = :id", nativeQuery=true)
 	@Query(value="SELECT p.name, c.text FROM comment as c inner join place as p on p.id = c.place_id where customer_id = :id", nativeQuery=true)
 	List<UserCommentProjection> getUsersComments(int id);
+	//With this query, we combine the tables from the database section and see which place and what comments the customer has made.
 }

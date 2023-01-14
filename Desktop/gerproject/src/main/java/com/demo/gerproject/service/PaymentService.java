@@ -28,6 +28,7 @@ public class PaymentService {
 		return true;
 	}
 	
+	// bring service's price
 	public PaymentResponseProjection getPricePlaceService(int id) {
 		return paymentRepository.getPricePlaceService(id);
 	}
