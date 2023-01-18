@@ -37,14 +37,6 @@ public class CreateDataset {
 				double x = Math.round((rand.nextDouble() * 10 + 3) * 100.0) / 100.0;
 				double y = Math.round((rand.nextDouble() * 10 + 3) * 100.0) / 100.0;
 
-				/*
-				 * // Generate a label based on the rule x+y>5=1 and x+y<=5=0 int label = (x + y
-				 * > 5) ? 1 : 0;
-				 * 
-				 * // Write the data point to the file bufferedWriter.write(x + "," + y + "," +
-				 * label); bufferedWriter.newLine();
-				 */
-
 				bufferedWriter.write(x + "," + y);
 				bufferedWriter.newLine();
 			}
